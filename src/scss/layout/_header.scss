@@ -1,0 +1,45 @@
+//
+// Header
+// --------------------------------------------------
+
+.header-wrapper {
+	position: absolute;
+	top: 30px;
+	left: 0;
+	width: 100%;
+}
+
+.section-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.team,
+.clients {
+	.section-header {
+		.main-nav__link {
+			color: $black;
+			font-weight: bold;
+			padding-right: 37px;
+		}
+		.main-nav__btn {
+			position: relative;
+			z-index: 1;
+			&::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				width: 54px;
+				height: 54px;
+				background-color: #fff;
+				border-radius: 50%;
+				background-image: url("../img/header/button.svg");
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		}
+	}
+}

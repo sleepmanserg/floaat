@@ -1,0 +1,27 @@
+.cursor {
+	width: 15px;
+	height: 15px;
+	background-color: $red;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 99;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	transition: all .2s ease;
+	transition-property: transform, background-color;
+	transform-origin: auto auto;
+	font-size: 2.5px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #FFEFF6DE;
+	text-transform: uppercase;
+	font-weight: bold;
+	&.cursor-grow {
+		transform: scale(5);
+	}
+	&.cursor-color {
+		background-color: #fff;
+	}
+}

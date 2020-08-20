@@ -1,0 +1,262 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+
+  //- ********** Settings **********
+  //- ==============================
+  -var pageTitle = 'Home'
+  -var whatPage = 'Home'
+  //- ==============================
+  //- ********* Settings END *******
+
+//- Page Content
+block content
+  .cursor
+  section.hero-section.hero#parallax1
+    .container
+      include partials/header
+      .hero__caption
+        .hero__caption-inner
+          span Practice by size
+          h1 Creative
+          img(src="./img/lettering.png", alt="")
+      .counter-wrap
+        span our content has reached
+        .counter 3000030021
+        span Viewers
+        
+
+  section.clients-section.clients#parallax2
+    .section-inner-wrap
+      .container
+        include partials/header
+        .clients__row
+          .clients__column
+            .clients__caption.caption-clients
+              .caption-clients__title
+                h2 150+ clients
+              .caption-clients__text
+                p We work with some of the biggest gaming entertainers &amp; world-renowned organisations.
+              .caption-clients__link
+                a(href="#") View all
+          .clients__column
+            .masonry-grid-wrapper
+              .masonry-grid.isotope-grid
+                .gutter-sizer
+                .grid-sizer
+
+                //- Grid Item
+                .grid-item
+                  .grid-thumb
+                    img(src="./img/clients/1.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+                .grid-item
+                  .grid-thumb.grid-thumb__margin
+                    img(src="./img/clients/3.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+                .grid-item
+                  .grid-thumb
+                    img(src="./img/clients/5.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+                .grid-item
+                  .grid-thumb
+                    img(src="./img/clients/2.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+                .grid-item
+                  .grid-thumb.grid-thumb__height
+                    img(src="./img/clients/6.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+                .grid-item
+                  .grid-thumb
+                    img(src="./img/clients/4.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+                .grid-item
+                  .grid-thumb
+                    img(src="./img/clients/1.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+                .grid-item
+                  .grid-thumb
+                    img(src="./img/clients/3.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+                .grid-item
+                  .grid-thumb
+                    img(src="./img/clients/5.jpg", alt="")
+                    .grid-thumb__info
+                      span.title Channel operation and management
+                      span.count
+                        strong 8.2
+                        | M
+                        strong +
+                      a(href="#") Video link
+                        img(src="./img/footer/arrow.svg", alt="")
+                  .grid-text
+                    span Liam Payne
+    
+  section.wedo-section.wedo#parallax3
+    .section-inner-wrap
+      .container
+        include partials/header
+        .we-do
+          h2.title We do
+          .we-do__row
+            .we-do__column
+              .tabs-nav__wrapper
+                ul.tabs-nav#tabs-nav
+                  li.active
+                    a(href="#tab-1")
+                      img(src="./img/wedo/gear.png", alt="")
+                  li
+                    a(href="#tab-2")
+                      img(src="./img/wedo/stars_small.png", alt="")
+                  li
+                    a(href="#tab-3")
+                      img(src="./img/wedo/graphik_small.png", alt="")
+                  li
+                    a(href="#tab-4")
+                      img(src="./img/wedo/lupa_small.png", alt="")
+                  li
+                    a(href="#tab-5")
+                      img(src="./img/wedo/hlopushka_small.png", alt="")
+                  li
+                    a(href="#tab-6")
+                      img(src="./img/wedo/headphone_small.png", alt="")
+            .we-do__column
+              .tab-content#tabs-content
+                .tab-item.active#tab-1
+                  .tab-item__inner
+                    h2.title Channel operation and management
+                    a(href="#") Learn more
+                .tab-item#tab-2
+                  .tab-item__inner
+                    h2.title Channel operation and management
+                    a(href="#") Learn more
+                .tab-item#tab-3
+                  .tab-item__inner
+                    h2.title Channel operation and management
+                    a(href="#") Learn more
+                .tab-item#tab-4
+                  .tab-item__inner
+                    h2.title Channel operation and management
+                    a(href="#") Learn more
+                .tab-item#tab-5
+                  .tab-item__inner
+                    h2.title Channel operation and management
+                    a(href="#") Learn more
+                .tab-item#tab-6
+                  .tab-item__inner
+                    h2.title Channel operation and management
+                    a(href="#") Learn more
+  section.team-section.team#parallax4
+    include partials/header
+    .container
+      .section-inner
+        h1.section-title Our team
+        .team__slider
+          .swiper-container
+            .swiper-wrapper
+              .swiper-slide
+                .team__slider-img
+                  a.team__slider-link(href="#")
+                    .team__slider__caption
+                      h3 Thomas French
+                      span Video Maker
+                    img(src="./img/team/1.jpg", alt="")
+              .swiper-slide
+                .team__slider-img
+                  a.team__slider-link(href="#")
+                    .team__slider__caption
+                      h3 Thomas French
+                      span Video Maker
+                    img(src="./img/team/2.jpg", alt="")
+              .swiper-slide
+                .team__slider-img
+                  a.team__slider-link(href="#")
+                    .team__slider__caption
+                      h3 Thomas French
+                      span Video Maker
+                    img(src="./img/team/3.jpg", alt="")
+              .swiper-slide
+                .team__slider-img
+                  a.team__slider-link(href="#")
+                    .team__slider__caption
+                      h3 Thomas French
+                      span Video Maker
+                    img(src="./img/team/4.jpg", alt="")
+            .swiper-button-next
+              span Next
+            .swiper-button-prev
+              span Prev
+

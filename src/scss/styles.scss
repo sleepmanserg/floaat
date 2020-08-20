@@ -1,0 +1,22 @@
+// All partial styles import
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&display=swap');
+// Core variables, mixins and placeholders
+@import 'helpers/variables';
+@import 'helpers/mixins';
+@import 'helpers/placeholders';
+@import 'helpers/utilities';
+@import 'helpers/scaffolding';
+
+// Components
+@import 'components/typography';
+@import 'components/forms';
+@import 'components/button';
+@import 'components/navigation';
+@import 'components/cursor';
+
+// Layout
+@import 'layout/header';
+@import 'layout/main-content';
+@import 'layout/footer';
+
+// Modules
