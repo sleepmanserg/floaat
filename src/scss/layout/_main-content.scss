@@ -1,6 +1,18 @@
 /* Parallax */
 
+#pinContainer {
+  height: 100% !important;
+  overflow: hidden;
+}
 
+.panel {
+  text-align: left;
+  min-height: 100%;
+	position: absolute; 
+	top: 100%; 
+	height: auto;
+	width: 100%;
+}
 
 .section-inner {
 	.section-title {
@@ -17,6 +29,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	top: 0 !important;
 }
 
 .hero {
@@ -100,7 +113,6 @@
 .clients-section {
 	background-color: $rose;
 	padding: 57px 0 20px;
-	height: 100vh;
 }
 
 .clients {
@@ -152,10 +164,7 @@
 	.section-inner-wrap {
 		height: 100%;
 	}
-	.masonry-grid-wrapper {
-		overflow: auto;
-		max-height: 100%;
-	}
+	
 	.masonry-grid {
 		position: relative;
 	

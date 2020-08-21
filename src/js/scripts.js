@@ -20,67 +20,63 @@ $(document).ready(function() {
 
 	startCounter();
 
-	/** Masonry grid */
-
-	function initIsotope() {
-		if ('undefined' === typeof $.fn.isotope) {
-			return;
-		}
-
-		$('.isotope-grid').isotope({
-				itemSelector: '.grid-item',
-				transitionDuration: '0.7s',
-				masonry: {
-					columnWidth: '.grid-sizer',
-					gutter: '.gutter-sizer'
-			}
-		});
-
-		// re-built isotope layout on page resize
-		$(window).on('resize', function () {
-			$('.isotope-grid').isotope('layout');
-		});
-		
-	}
-
 	/** Parallax */
 
-	// Init ScrollMagic
-	let ctrl = new ScrollMagic.Controller({
-		globalSceneOptions: {
-			triggerHook: 'onLeave'
-		}
+	//add pannel# to each  panel
+	$(".panel").each(function(i) {
+		$(this).addClass("panel" + (i + 1));
 	});
 
-	// Create scene
-	$("section").each(function() {
+	// how many panels
+	var numPanels = $('.panel').length;
 
-		let name = $(this).attr('id');
-		
-		new ScrollMagic.Scene({
-			triggerElement: this
+	// Add z-index and calulate tween durations
+	var orderedPanels = [];
+	var duration = [];
+	for (var i = 0; i < numPanels; i++) {
+		// generate CSS for z-index of each panel, negative numbers ascending
+		orderedPanels.push(".panel" + (i + 1) + " {z-index: " + (i + 1) + ";} ");
+		// Calulate tween duration for each panel based on height
+		duration.push(($(".panel" + (i+1)).height()/200));
+	}
+
+	// init
+	var controller = new ScrollMagic.Controller();
+
+	// define movement of panels
+	var wipeAnimation = new TimelineLite()
+		.fromTo(".clients", duration[1], {
+			y: "-0%",
+		}, {
+			y: "-100%",
+			ease: Linear.easeNone
+		}).fromTo(".wedo", duration[2], {
+			y: "-0%",
+		}, {
+			y: "-100%",
+			ease: Linear.easeNone
+		}).fromTo(".team", duration[3], {
+			y: "-0%",
+		}, {
+			y: "-100%",
+			ease: Linear.easeNone
 		})
-		.setPin(this)
-		.addIndicators({
-			colorStart: "rgba(255,255,255,0.5)",
-			colorEnd: "rgba(255,255,255,0.5)", 
-			colorTrigger : "rgba(255,255,255,1)",
-			name:name
-		})
-		.loglevel(3)
-		.addTo(ctrl);
 
-	});
 
-	// Get window height
-	let wh = window.innerHeight;
-
+	// create scene to pin and link animation
 	new ScrollMagic.Scene({
-		offset: wh*3
-	})
-	.setClassToggle("section#parallax4", "is-active")
-	.addTo(ctrl);
+			triggerElement: "#pinContainer",
+			triggerHook: "onLeave",
+			duration: "1000%"
+		})
+		.setPin("#pinContainer")
+		.setTween(wipeAnimation)
+		.addIndicators() // add indicators (requires plugin)
+		.addTo(controller);
+		
 	
+	/** We do tabs */
+
 	$('#tabs-nav li').click(function(){
 		$('#tabs-nav li').removeClass('active');
 		$(this).addClass('active');
@@ -96,58 +92,60 @@ $(document).ready(function() {
 
 /** Cursor */
 
-let mouseCursor = document.querySelector('.cursor');
-let navLinks = document.querySelectorAll('.main-nav__link');
-let logo = document.querySelectorAll('.logo-link');
-let menuToggle = document.querySelectorAll('.main-nav__btn');
-let clientsHover = document.querySelectorAll('.masonry-grid__item-inner');
+// let mouseCursor = document.querySelector('.cursor');
+// let navLinks = document.querySelectorAll('.main-nav__link');
+// let logo = document.querySelectorAll('.logo-link');
+// let menuToggle = document.querySelectorAll('.main-nav__btn');
+// let clientsHover = document.querySelectorAll('.masonry-grid__item-inner');
 
-window.addEventListener('mousemove',cursor);
+// window.addEventListener('mousemove',cursor);
 
-function cursor (e) {
-	mouseCursor.style.top = e.pageY + 'px';
-	mouseCursor.style.left = e.pageX + 'px';
-}
+// function cursor (e) {
+// 	mouseCursor.style.top = e.pageY + 'px';
+// 	mouseCursor.style.left = e.pageX + 'px';
+// }
 
-navLinks.forEach(link => {
-	link.addEventListener('mouseover', () => {
-		mouseCursor.classList.add('cursor-grow');
-		mouseCursor.innerText = 'Contact';
-	});
-	link.addEventListener('mouseleave', () => {
-		mouseCursor.classList.remove('cursor-grow');
-		mouseCursor.innerText = '';
-	});
-});
+// navLinks.forEach(link => {
+// 	link.addEventListener('mouseover', () => {
+// 		mouseCursor.classList.add('cursor-grow');
+// 		mouseCursor.innerText = 'Contact';
+// 	});
+// 	link.addEventListener('mouseleave', () => {
+// 		mouseCursor.classList.remove('cursor-grow');
+// 		mouseCursor.innerText = '';
+// 	});
+// });
 
-logo.forEach(link => {
-	link.addEventListener('mouseover', () => {
-		mouseCursor.classList.add('cursor-color');
-	});
-	link.addEventListener('mouseleave', () => {
-		mouseCursor.classList.remove('cursor-color');
-	});
-});
+// logo.forEach(link => {
+// 	link.addEventListener('mouseover', () => {
+// 		mouseCursor.classList.add('cursor-color');
+// 	});
+// 	link.addEventListener('mouseleave', () => {
+// 		mouseCursor.classList.remove('cursor-color');
+// 	});
+// });
 
-menuToggle.forEach(link => {
-	link.addEventListener('mouseover', () => {
-		mouseCursor.classList.add('cursor-grow');
-		mouseCursor.innerText = 'Open';
-	});
-	link.addEventListener('mouseleave', () => {
-		mouseCursor.classList.remove('cursor-grow');
-		mouseCursor.innerText = '';
-	});
-});
+// menuToggle.forEach(link => {
+// 	link.addEventListener('mouseover', () => {
+// 		mouseCursor.classList.add('cursor-grow');
+// 		mouseCursor.innerText = 'Open';
+// 	});
+// 	link.addEventListener('mouseleave', () => {
+// 		mouseCursor.classList.remove('cursor-grow');
+// 		mouseCursor.innerText = '';
+// 	});
+// });
 
-clientsHover.forEach(link => {
-	link.addEventListener('mouseover', () => {
-		mouseCursor.classList.add('cursor-color');
-	});
-	link.addEventListener('mouseleave', () => {
-		mouseCursor.classList.remove('cursor-color');
-	});
-});
+// clientsHover.forEach(link => {
+// 	link.addEventListener('mouseover', () => {
+// 		mouseCursor.classList.add('cursor-color');
+// 	});
+// 	link.addEventListener('mouseleave', () => {
+// 		mouseCursor.classList.remove('cursor-color');
+// 	});
+// });
+
+/** Masonry grid */
 
 var elem = document.querySelector('.masonry-grid');
 var iso = new Isotope( elem, {
@@ -160,6 +158,7 @@ var iso = new Isotope( '.masonry-grid', {
   // options
 });
 
+/** Team slider */
 
 var swiper = new Swiper('.swiper-container', {
 	slidesPerView: 4,

@@ -24,7 +24,6 @@ aside, nav, footer, header, section {
 }
 
 html, body {
-  cursor: none;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -67,7 +66,6 @@ button::-moz-focus-inner {
 
 a, a:visited {
   text-decoration: none;
-  cursor: none;
 }
 
 a:hover {
@@ -128,7 +126,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
   overflow: visible;
   -webkit-appearance: button;
-  cursor: none;
 }
 
 .main-nav__list {
@@ -244,6 +241,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Parallax */
+#pinContainer {
+  height: 100% !important;
+  overflow: hidden;
+}
+
+.panel {
+  text-align: left;
+  min-height: 100%;
+  position: absolute;
+  top: 100%;
+  height: auto;
+  width: 100%;
+}
+
 .section-inner .section-title {
   margin-bottom: 52px;
 }
@@ -262,6 +273,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  top: 0 !important;
 }
 
 .hero__caption {
@@ -351,7 +363,6 @@ h1, h2, h3, h4, h5, h6 {
 .clients-section {
   background-color: #FFECEE;
   padding: 57px 0 20px;
-  height: 100vh;
 }
 
 .clients__row {
@@ -407,11 +418,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .clients .section-inner-wrap {
   height: 100%;
-}
-
-.clients .masonry-grid-wrapper {
-  overflow: auto;
-  max-height: 100%;
 }
 
 .clients .masonry-grid {
